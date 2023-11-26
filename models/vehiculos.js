@@ -6,7 +6,7 @@ const VehiculoSchema = ({
         unique:true
     },
     placa:{
-        type: Number,
+        type: String,
         unique:true
     },
     horasReparacion:{
@@ -18,7 +18,7 @@ const VehiculoSchema = ({
         required :[true,'El precio de reparacion es obligatorio'] 
     },
     observaciones:{
-        type: Number,
+        type: String,
         required:[true,'La observacion es obligatoria'] 
     }
 })
