@@ -19,6 +19,19 @@ const vehiculoGet  = async (req, res = response) => {
 }
 
 
+
+ const buscarUnVehiculo = async (req, res = response) => {
+    const vehiculo = await Vehiculo.find();
+    let listVehiculos =[];
+    for (let i = 0; i < vehiculo.length; i++) {
+        if (vehiculo[i]["numero"] == req.params.numero) {
+            listVehiculos.push(vehiculo[i]);
+        }
+    }
+    return res.json(listVehiculos);
+}
+
+
 const vehiculoPost = async(req, res) => {
     let mensaje = 'Inserción Exitosa'
     const body = req.body //Captura de atributos
@@ -76,5 +89,6 @@ module.exports = {
     vehiculoGet,
     vehiculoPost,
     vehiculoPut,
-    vehiculoDelete
+    vehiculoDelete,
+    buscarUnVehiculo
 }
